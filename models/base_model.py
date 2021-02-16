@@ -51,4 +51,4 @@ class BaseModel:
         """should print: [<class name>] (<self.id>) <self.__dict__>"""
 
         clsname = type(self).__name__
-        return "[{}] {} {}".format(clsname, self.id, self.__dict__)
+        return "[{}] ({}) {}".format(clsname, self.id, self.__dict__)
