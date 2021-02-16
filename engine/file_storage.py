@@ -1,14 +1,20 @@
 #!/usr/bin/pyhton3
 """module engine file_storage"""
+
 import json
 import os
 from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
 
 class FileStorage:
     """class FileStorage that serializes instances to a JSON file
     and deserializes JSON file to instances"""
-
 
     __file_path = 'file.json'
 
@@ -35,14 +41,11 @@ class FileStorage:
     def reload(self):
         """deserializes the JSON file to __objects
         (only if the JSON file (__file_path) exists
-        ; otherwise, do nothing. If the file doesnt 
+        ; otherwise, do nothing. If the file doesnt
         exist, no exception should be raised)"""
 
         if os.path.exists(self.__file_path) is True:
             with open(self.__file_path, 'r') as f:
                 json_objs = json.load(f)
                 for key, value in json_objs.items():
-                    #inst = value['__class__']
                     self.__objects[key] = eval(value['__class__'])(**value)
-
-        
