@@ -29,14 +29,13 @@ class BaseModel:
             models.storage.new(self)
 
     def save(self):
-        """ updates the public instance attribute updated_at
-        with the current datetime"""
+        """attribute updated_at with the current datetime"""
+
         self.update_at = datetime.datetime.now()
         models.storage.save()
 
     def to_dict(self):
-        """returns a dictionary containing all keys/values of
-        __dict__ of the instance"""
+        """returns a dictionary containing all keys/values of __dict__"""
         new = {}
         mydict = self.__dict__
         for key in mydict:
@@ -49,6 +48,7 @@ class BaseModel:
         return new
 
     def __str__(self):
-        """ should print: [<class name>] (<self.id>) <self.__dict__>"""
+        """should print: [<class name>] (<self.id>) <self.__dict__>"""
+
         clsname = type(self).__name__
         return "[{}] ({}) ({})".format(clsname, self.id, self.__dict__)

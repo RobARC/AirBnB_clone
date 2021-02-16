@@ -1,15 +1,24 @@
 #!/usr/bin/python3
 import cmd
+import json
 import re
 from models import storage
 from models.base_model import BaseModel
+from models.user import User
 
 if __name__ == "__main__":
     class HBNBCommand(cmd.Cmd):
         prompt = "(hbnb)"
         __classes = {
-                "BaseModel"
+                "BaseModel",
+                "User",
+                "State",
+                "City",
+                "Amenity",
+                "Place",
+                "Review"
         }
+
         def emptyline(self):
             """Do nothing"""
             pass
@@ -66,7 +75,10 @@ if __name__ == "__main__":
                 storage.save()
 
         def do_all(self, arg):
-            """print all string representation of all instances based or not on the class name"""
+            """print all string representation of all instances
+            based or not on the class name
+            """
+
             arg1 = arg.split()
             if len(arg1) > 0 and arg1[0] not in HBNBCommand.__classes:
                 print("** class doesn't exist **")
@@ -105,14 +117,12 @@ if __name__ == "__main__":
                     search = arg1[0]+"."+arg1[1]
                     for key, value in obj.items():
                         if search == key:
-                             new = value
+                            new = value
                     setattr(new, arg1[2], arg1[3])
                     new.save()
 
                 except NameError:
                     print("** value missing **")
                     return False
-
-
 
     HBNBCommand().cmdloop()
