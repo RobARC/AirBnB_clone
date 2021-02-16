@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """module class BaseModel"""
 from uuid import uuid4
-import datetime 
+import datetime
 import models
 
 
@@ -10,16 +10,16 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """ method to initialize instance of class BaseModel"""
-        
+
         if kwargs is not None and len(kwargs) is not 0:
             for key, value in kwargs.items():
                 if key == '__class__':
                     continue
                 else:
                     if key == 'update_at' or key == 'created_at':
-                        time = datetime.datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                        mystr = "%Y-%m-%dT%H:%M:%S.%f"
+                        time = datetime.datetime.strptime(value, mystr)
                         setattr(self, key, time)
-                       
                     else:
                         setattr(self, key, value)
         else:
@@ -33,7 +33,6 @@ class BaseModel:
         with the current datetime"""
         self.update_at = datetime.datetime.now()
         models.storage.save()
-
 
     def to_dict(self):
         """returns a dictionary containing all keys/values of
