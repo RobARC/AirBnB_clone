@@ -83,8 +83,7 @@ if __name__ == "__main__":
             """update class"""
             arg1 = arg.split()
             obj = storage.all()
-            #print(type(obj))
-            new = obj.copy()
+            new = None
 
             if len(arg1) == 0:
                 print("** class name missing **")
@@ -103,15 +102,13 @@ if __name__ == "__main__":
                 return False
             if len(arg1) >= 3:
                 try:
-                    type(eval(arg1[2]+" = "+arg1[3])) != dict
-                    #eval('"arg1[1].arg1[2] = lambda: None"')
-                    #setattr(arg1[1], arg1[2], arg1[3])
-                    #print(arg1[2])
-                    #for key, value in obj.items():
-                    #    if arg1[0]+"."+arg1[1] == key:
-                    #        print(eval("{}.id".format(arg1[1])))
+                    search = arg1[0]+"."+arg1[1]
+                    for key, value in obj.items():
+                        if search == key:
+                             new = value
+                    setattr(new, arg1[2], arg1[3])
+                    new.save()
 
-                    
                 except NameError:
                     print("** value missing **")
                     return False
