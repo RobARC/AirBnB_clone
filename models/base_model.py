@@ -16,7 +16,7 @@ class BaseModel:
                 if key == '__class__':
                     continue
                 else:
-                    if key == 'update_at' or key == 'created_at':
+                    if key == 'updated_at' or key == 'created_at':
                         mystr = "%Y-%m-%dT%H:%M:%S.%f"
                         time = datetime.datetime.strptime(value, mystr)
                         setattr(self, key, time)
@@ -25,13 +25,13 @@ class BaseModel:
         else:
             self.id = str(uuid4())
             self.created_at = datetime.datetime.now()
-            self.update_at = datetime.datetime.now()
+            self.updated_at = datetime.datetime.now()
             models.storage.new(self)
 
     def save(self):
         """attribute updated_at with the current datetime"""
 
-        self.update_at = datetime.datetime.now()
+        self.updated_at = datetime.datetime.now()
         models.storage.save()
 
     def to_dict(self):
@@ -39,7 +39,7 @@ class BaseModel:
         new = {}
         mydict = self.__dict__
         for key in mydict:
-            if key is 'created_at' or key is 'update_at':
+            if key is 'created_at' or key is 'updated_at':
                 mydict[key] = datetime.datetime.now()
                 new[key] = mydict[key].isoformat()
             else:
