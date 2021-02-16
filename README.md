@@ -1,6 +1,6 @@
 # Description
 -----
-This clone of AirBnB is a application, which use JSON to storage, and a back-end in Python.
+This clone of AirBnB is an application which use JSON to storage, and a back-end in Python.
 In this app is used to save information that is displayed in the following points.
 At the momment its only a back-end console
 ## Attributes
@@ -105,7 +105,3 @@ The command `update` updates the attributes passed of a class instances based in
 (hbnb) show BaseModel 49faff9a-6318-451f-87b6-910505c55907
 [BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'first_name': 'Betty', 'id': '49faff9a-6318-451f-87b6-910505c55907', 'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 3, 49401)}
 ```
-# Authors
----
-- Roberth Rondón ([RobARC] (https://github.com/RobARC))
-- Jaime A Castro ([JCansta](https://github.com/JCansta))
