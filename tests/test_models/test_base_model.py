@@ -92,7 +92,7 @@ class TestBaseModelInstances(unittest.TestCase):
         actual = 0
         if 'updated_at' in my_str:
             actual += 1
-        self.assertTrue(0 == actual)
+        self.assertFalse(0 == actual)
 
     def test_dict_class(self):
         """... to_dict should include class key with value BaseModel"""
