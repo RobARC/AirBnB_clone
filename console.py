@@ -89,17 +89,15 @@ class HBNBCommand(cmd.Cmd):
         based or not on the class name
         """
 
-        arg1 = arg.split()
-        if len(arg1) > 0 and arg1[0] not in HBNBCommand.__classes:
+        obj = storage.all()
+        if arg not in HBNBCommand.__classes:
             print("** class doesn't exist **")
         else:
             objlist = []
-            for obj in storage.all().values():
-                if len(arg1) > 0 and arg[0] == obj.__class__.__name__:
-                    objlist.append(obj.__str__())
-                elif len(arg1) == 0:
-                    objlist.append(obj.__str__())
-            print(objlist)
+            for k in HBNBCommand.__classes:
+                if arg == obj.__class__.__name__:
+                    obj.append(obj.__str__())
+            print(obj)
 
     def do_update(self, arg):
         """update class"""
