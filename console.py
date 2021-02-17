@@ -134,6 +134,7 @@ class HBNBCommand(cmd.Cmd):
                 for key, value in obj.items():
                     if search == key:
                         new = value
+                arg1[3] = arg1[3].replace('"', '') 
                 setattr(new, arg1[2], arg1[3])
                 new.save()
 
