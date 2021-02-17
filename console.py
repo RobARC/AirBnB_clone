@@ -57,16 +57,22 @@ class HBNBCommand(cmd.Cmd):
 
         arg1 = arg.split()
         obje = storage.all()
-        if len(arg) == 0:
+        if len(arg1) == 0:
             print("** class name missing **")
-        elif arg1[0] not in HBNBCommand.__classes:
-            print("** class doesn't exist **")
-        elif len(arg1) == 1:
-            print("** instance id missing **")
-        elif "{}.{}".format(arg1[0], arg1[1]) not in obje:
-            print("** no instance found **")
         else:
-            print(obje["{}.{}".format(arg1[0], arg1[1])])
+            if arg1[0] not in HBNBCommand.__classes:
+                print("** class doesn't exist **")
+            else:
+                if len(arg1) == 1:
+                    print("** instance id missing **")
+        if len(arg1) == 2:
+            try:
+                if "{}.{}".format(arg1[0], arg1[1]) not in obje:
+                    print("** no instance found **")
+                else:
+                    print(obje["{}.{}".format(arg1[0], arg1[1])])
+            except:
+                pass
 
     def do_destroy(self, arg):
         """destroy an instance"""
@@ -75,15 +81,21 @@ class HBNBCommand(cmd.Cmd):
         obje = storage.all()
         if len(arg1) == 0:
             print("** class name missing **")
-        elif arg1[0] not in HBNBCommand.__classes:
-            print("** class doesn't exist **")
-        elif len(arg1) == 1:
-            print("** instance id missing **")
-        elif "{}.{}".format(arg1[0], arg1[1]) not in obje.keys():
-            print("** no instance found **")
         else:
-            del obje["{}.{}".format(arg1[0], arg1[1])]
-            storage.save()
+            if arg1[0] not in HBNBCommand.__classes:
+                print("** class doesn't exist **")
+            else:
+                if len(arg1) == 1:
+                    print("** instance id missing **")
+        if len(arg1) == 2:
+            try:
+                if "{}.{}".format(arg1[0], arg1[1]) not in obje.keys():
+                    print("** no instance found **")
+                else:
+                    del obje["{}.{}".format(arg1[0], arg1[1])]
+                    storage.save()
+            except:
+                pass
 
     def do_all(self, arg):
         """print all string representation of all instances
