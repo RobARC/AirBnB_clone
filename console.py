@@ -59,12 +59,15 @@ class HBNBCommand(cmd.Cmd):
         obje = storage.all()
         if len(arg1) == 0:
             print("** class name missing **")
+            return
         else:
             if arg1[0] not in HBNBCommand.__classes:
                 print("** class doesn't exist **")
+                return
             else:
                 if len(arg1) == 1:
                     print("** instance id missing **")
+                    return
         if len(arg1) == 2:
             if "{}.{}".format(arg1[0], arg1[1]) not in obje:
                 print("** no instance found **")
@@ -134,7 +137,7 @@ class HBNBCommand(cmd.Cmd):
                 for key, value in obj.items():
                     if search == key:
                         new = value
-                arg1[3] = arg1[3].replace('"', '') 
+                arg1[3] = arg1[3].replace('"', '')
                 setattr(new, arg1[2], arg1[3])
                 new.save()
 
