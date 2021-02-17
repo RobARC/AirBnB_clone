@@ -95,16 +95,16 @@ class HBNBCommand(cmd.Cmd):
         """print all string representation of all instances
         based or not on the class name
         """
-
-        obj = storage.all()
-        if arg not in HBNBCommand.__classes:
-            print("** class doesn't exist **")
-        else:
+        arg1 = arg.split()
+        if arg == "" or arg1[0] in HBNBCommand.__classes:
+            obj = storage.all()
             objlist = []
-            for k in HBNBCommand.__classes:
-                if arg == obj.__class__.__name__:
-                    obj.append(obj.__str__())
-            print(obj)
+            for k, v in obj.items():
+                if arg in k:
+                    objlist.append(v.__str__())
+            print(objlist)
+        else:
+            print("** class doesn't exist **")
 
     def do_update(self, arg):
         """update class"""
