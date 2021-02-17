@@ -66,13 +66,11 @@ class HBNBCommand(cmd.Cmd):
                 if len(arg1) == 1:
                     print("** instance id missing **")
         if len(arg1) == 2:
-            try:
-                if "{}.{}".format(arg1[0], arg1[1]) not in obje:
-                    print("** no instance found **")
-                else:
-                    print(obje["{}.{}".format(arg1[0], arg1[1])])
-            except:
-                pass
+           if "{}.{}".format(arg1[0], arg1[1]) not in obje:
+                print("** no instance found **")
+           else:
+                print(obje["{}.{}".format(arg1[0], arg1[1])])
+        
 
     def do_destroy(self, arg):
         """destroy an instance"""
@@ -88,15 +86,12 @@ class HBNBCommand(cmd.Cmd):
                 if len(arg1) == 1:
                     print("** instance id missing **")
         if len(arg1) == 2:
-            try:
-                if "{}.{}".format(arg1[0], arg1[1]) not in obje.keys():
-                    print("** no instance found **")
-                else:
-                    del obje["{}.{}".format(arg1[0], arg1[1])]
-                    storage.save()
-            except:
-                pass
-
+            if "{}.{}".format(arg1[0], arg1[1]) not in obje.keys():
+                print("** no instance found **")
+            else:
+                del obje["{}.{}".format(arg1[0], arg1[1])]
+                storage.save()
+            
     def do_all(self, arg):
         """print all string representation of all instances
         based or not on the class name
