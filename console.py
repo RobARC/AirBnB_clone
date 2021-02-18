@@ -25,12 +25,12 @@ class HBNBCommand(cmd.Cmd):
        ""
        }
 
-    numintlist = [
-        "number_rooms", "number_bathrooms",
-        "max_guest", "price_by_night"
-        ]
+    #numintlist = [
+     #   "number_rooms", "number_bathrooms",
+      #  "max_guest", "price_by_night"
+       # ]
 
-    numfloatlist = ["latitude", "longitude"]
+    #numfloatlist = ["latitude", "longitude"]
 
     def emptyline(self):
         """Do nothing"""
@@ -148,10 +148,10 @@ class HBNBCommand(cmd.Cmd):
                     if search == key:
                         new = value
                 arg1[3] = arg1[3].replace('"', '')
-                if arg1[2] in self.numintlist:
-                    arg1[3] = int(arg1[3])
-                elif arg1[2] in self.numfloatlist:
-                    arg1[3] = float(arg1[3])
+                #if arg1[2] in self.numintlist:
+                 #   arg1[3] = int(arg1[3])
+                #elif arg1[2] in self.numfloatlist:
+                 #   arg1[3] = float(arg1[3])
                 setattr(new, arg1[2], arg1[3])
                 new.save()
 
