@@ -40,7 +40,6 @@ class BaseModel:
         mydict = self.__dict__
         for key in mydict:
             if key is 'created_at' or key is 'updated_at':
-                mydict[key] = datetime.datetime.now()
                 new[key] = mydict[key].isoformat()
             else:
                 new[key] = mydict[key]
