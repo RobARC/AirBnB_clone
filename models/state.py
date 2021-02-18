@@ -11,7 +11,3 @@ class State(BaseModel):
     """
 
     name = ""
-
-    def __init__(self, *args, **kwargs):
-        """instantiates a new state"""
-        super().__init__(self, *args, **kwargs)
