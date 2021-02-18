@@ -132,7 +132,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return False
         if len(arg1) == 1:
-            print("** instance id missing**")
+            print("** instance id missing **")
             return False
         if "{}.{}".format(arg1[0], arg1[1]) not in obj.keys():
             print("** no instance found **")
