@@ -10,6 +10,3 @@ class Amenity(BaseModel):
     """Amenity class handles all application amenities"""
 
     name = ""
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(self, *args, **kwargs)
