@@ -141,6 +141,9 @@ class HBNBCommand(cmd.Cmd):
         if len(arg1) == 2:
             print("** attribute name missing **")
             return False
+        if len(arg1) == 3:
+            print("** value missing **")
+            return False
         if len(arg1) >= 3:
             try:
                 search = arg1[0]+"."+arg1[1]
