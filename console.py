@@ -7,6 +7,7 @@ import re
 from models import storage
 from models.base_model import BaseModel
 from models.user import User
+import shlex
 
 
 class HBNBCommand(cmd.Cmd):
@@ -24,13 +25,6 @@ class HBNBCommand(cmd.Cmd):
        "Review",
        ""
        }
-
-    #numintlist = [
-     #   "number_rooms", "number_bathrooms",
-      #  "max_guest", "price_by_night"
-       # ]
-
-    #numfloatlist = ["latitude", "longitude"]
 
     def emptyline(self):
         """Do nothing"""
@@ -122,7 +116,7 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, arg):
         """update class"""
 
-        arg1 = arg.split()
+        arg1 = shlex.split(arg)
         obj = storage.all()
         new = None
 
@@ -151,10 +145,6 @@ class HBNBCommand(cmd.Cmd):
                     if search == key:
                         new = value
                 arg1[3] = arg1[3].replace('"', '')
-                #if arg1[2] in self.numintlist:
-                 #   arg1[3] = int(arg1[3])
-                #elif arg1[2] in self.numfloatlist:
-                 #   arg1[3] = float(arg1[3])
                 setattr(new, arg1[2], arg1[3])
                 new.save()
 
