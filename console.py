@@ -150,7 +150,7 @@ class HBNBCommand(cmd.Cmd):
                 arg1[3] = arg1[3].replace('"', '')
                 if arg1[2] in self.numintlist:
                     arg1[3] = int(arg1[3])
-                if arg1[2] in self.numfloatlist:
+                elif arg1[2] in self.numfloatlist:
                     arg1[3] = float(arg1[3])
                 setattr(new, arg1[2], arg1[3])
                 new.save()
