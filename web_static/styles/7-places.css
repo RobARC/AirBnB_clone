@@ -1,0 +1,33 @@
+.places{
+    margin-left: 22%;
+    justify-content: center;
+    align-items: center;
+}
+
+article h2{
+    width: 390px;
+    padding: 20px;
+    margin: 20px;
+    font-size: 30px;
+    border-radius: 4px;
+    text-align: center;
+    border:solid #FF5A5F 1px;
+    
+}
+
+.suite{
+    width: 390px;
+    padding: 20px;
+    margin-right: 20px;
+    margin-left: 250px;
+    
+}
+ul{
+    display: grid;
+    grid-template-columns: 480px 480px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.places h1{
+    font-size: 30px;
+}
