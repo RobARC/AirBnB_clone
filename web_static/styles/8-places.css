@@ -11,26 +11,32 @@ article h2{
     font-size: 30px;
     border-radius: 4px;
     text-align: center;
-    border:solid #FF5A5F 1px;
+    
     
 }
 
 .suite{
     width: 390px;
     padding: 20px;
-    margin-right: 20px;
+    margin: 20px;
     margin-left: 250px;
-    display: flex;
-    flex-wrap: wrap;
-    -ms-flex-direction: column;
+    border:solid #FF5A5F 1px;
+    margin-top: 40px;
+    align-content: center;
+   
+    
    
     
 }
-ul{
+.grid{
     display: grid;
     grid-template-columns: 480px 480px;
+    grid-gap: 40px;
     margin-top: 0;
     margin-bottom: 0;
+    align-content: center;
+    
+
 }
 .places h1{
     font-size: 30px;
@@ -39,46 +45,72 @@ ul{
 .price_by-night{
     color:#FF5A5F;
     border: #FF5A5F 4px;
-    border-radius: 50%;
+    border-radius: 150px;
     min-width: 60px;
     height: 60px;
     font-size: 30px;
-    display: flex;
-    align-items: center;
-    margin-top: -30px;
-    align-self: flex-end;
+    justify-items: right;
+    
+   
 
 }
 .information{
     height: 80px;
     border-top: #DDDDDD 1px solid;
     border-bottom: #DDDDDD 1px solid;
+    display: grid;
+    grid-template-columns: 117px 117px 117px;
+    align-content:stretch;
+    
     
 }
 .max_guest{
     background: url("../images/icon_group.png");
     background-repeat: no-repeat;
     width: 100px;
-    background-position: 100% 20%;
-    margin-left: 10px;
+    background-position: 10% 120%;
+    margin-left: 20px;
 
 }
 .numbers_rooms{
     background: url("../images/icon_bed.png");
     background-repeat: no-repeat;
-    width: 100px;
+    width: 100px;background-position: 10% 120%;
+    margin-left: 10px;
+   
 }
 .numbers_bathrooms{
     background: url("../images/icon_bath.png");
     background-repeat: no-repeat;
     width: 100px;
+    background-position: 10% 120%;
+    margin-left: 10px;
 }
 .user{
     margin-left: 10px;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
+    margin-left: 20px;
+    padding-top: 0;
 
 }
+.user p{
+    margin-top: 0;
+}
 .description{
+    margin-left: 20px;
 
+}
+.my_home {
+    border:solid #FF5A5F 1px;
+    padding: 20px;
+    align-content: center;
+}
+.tiny{
+    border:solid #FF5A5F 1px;
+    padding: 20px;   
+    vertical-align: 50%;
+}
+.price_by-night .p{
+    justify-self: right;
 }
